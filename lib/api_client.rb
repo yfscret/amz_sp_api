@@ -206,6 +206,8 @@ module AmzSpApi
     # @return [Mixed] Data in a particular type
     def convert_to_type(data, return_type)
       return nil if data.nil?
+      return data if data.is_a?(Hash)
+
       case return_type
       when 'String'
         data.to_s
